@@ -1,0 +1,26 @@
+<section class="locationinfo">
+  <div class="locations cf" ng-model="locations">
+
+    <p>
+      <a href="#/details/{{prevItem}}" class="btn btn-left">&lt;</a>
+      <a href="#/details/{{nextItem}}" class="btn btn-right">&gt;</a>
+      <a href="index.html" class="btn">Search</a>
+    </p>
+
+    <div class="info">
+    <h1>{{locations[whichItem].name}}</h1>
+
+    <h2>{{locations[whichItem].main.temp}}&#176;C</h2>
+
+      <p>Humidity: {{locations[whichItem].main.humidity}}%</p>
+      <p>Pressure: {{locations[whichItem].main.pressure}} hPa</p>
+      <p>Wind speed: {{locations[whichItem].wind.speed}} kph</p>
+      <p>Cloud cover: {{locations[whichItem].clouds.all}}%</p>
+      <p>Longitude: {{locations[whichItem].coord.lon}}</p>
+      <p>Latitude: {{locations[whichItem].coord.lat}}</p>
+
+    </div>
+  </div>
+</section>
+
+

@@ -1,0 +1,39 @@
+<section class="locationpage">
+  <div class="search">
+    <h1>Irish Weather Stations</h1>
+    <label>search: </label>
+    <input ng-model="query" placeholder="Search for locations" autofocus>
+
+    <label class="formgroup">by:
+      <select ng-model="locationOrder">
+        <option value="name">Location</option>
+        <option value="main.temp">Temperature</option>
+      </select>
+    </label>
+
+    <label class="formgroup" style="float:right;">
+      <input type="radio" ng-model="direction" name="direction" value="reverse">
+      Descend &darr;
+    </label>
+
+    <label class="formgroup" style="float:right;">
+      <input type="radio" ng-model="direction" name="direction" checked>
+      Ascend &uarr;
+     </label>
+
+  </div>
+  <ul class="locationlist" ng-show="query">
+    <li ng-animate="'animate'" class="locations cf" ng-repeat="item in locations |filter: query | orderBy: locationOrder:direction| limitTo: 10">
+      <a href="#/details/{{locations.indexOf(item)}}">
+        <!-- <img ng-src="images/{{item.shortname}}_tn.jpg" alt="Photo of {{item.name}}"> 
+        <img ng-src="{{item.thumbnail}}" alt="Photo of {{item.title}}">-->
+
+        <div class="info">
+          <h2>{{item.name}}</h2>
+          <h3>{{item.main.temp}}&#176;C</h3>
+        </div>
+      </a>
+    </li>
+  </ul>  
+</section>
+<div class="footer"><a href="http://www.williamwhyte.ie">WilliamWhyte.ie</a><br />API Credit: openweathermap.org</div>
